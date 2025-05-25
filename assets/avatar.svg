@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1024" height="1024" fill="transparent"/>
+  
+  <!-- Beanie -->
+  <path d="M362 200 
+    C362 200, 512 150, 662 200
+    L662 300
+    C662 300, 512 270, 362 300
+    Z" fill="black"/>
+  <path d="M362 250
+    C362 250, 512 220, 662 250
+    L662 300
+    C662 300, 512 270, 362 300
+    Z" fill="black"/>
+  
+  <!-- Face -->
+  <circle cx="512" cy="450" r="200" fill="white" stroke="black" stroke-width="2"/>
+  
+  <!-- Glasses -->
+  <circle cx="432" cy="400" r="50" fill="none" stroke="black" stroke-width="8"/>
+  <circle cx="592" cy="400" r="50" fill="none" stroke="black" stroke-width="8"/>
+  <line x1="482" y1="400" x2="542" y2="400" stroke="black" stroke-width="8"/>
+  <line x1="342" y1="400" x2="382" y2="400" stroke="black" stroke-width="8"/>
+  <line x1="642" y1="400" x2="682" y2="400" stroke="black" stroke-width="8"/>
+  
+  <!-- Eyebrows -->
+  <path d="M382 360 C382 360, 432 340, 482 360" stroke="black" stroke-width="8" fill="none"/>
+  <path d="M542 360 C542 360, 592 340, 642 360" stroke="black" stroke-width="8" fill="none"/>
+  
+  <!-- Mustache -->
+  <path d="M462 450
+    C462 450, 512 470, 562 450
+    C562 450, 512 490, 462 450
+    Z" fill="black"/>
+  
+  <!-- Neck/Shirt -->
+  <path d="M412 650
+    C412 650, 512 620, 612 650
+    L612 750
+    L412 750
+    Z" fill="black"/>
+</svg>

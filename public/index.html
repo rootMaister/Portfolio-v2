@@ -1,0 +1,30 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vitor C. Costa - Product Designer</title>
+  <meta name="description" content="Portfolio of Vitor C. Costa, Product Designer specializing in creating intuitive interfaces and impactful user experiences for digital products.">
+  <script>
+    // Inline script to prevent flash of wrong theme
+    (function() {
+      try {
+        const storedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        
+        if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        } else {
+          document.documentElement.classList.remove("dark");
+        }
+      } catch (e) {
+        console.error("Error setting initial theme:", e);
+      }
+    })();
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+</body>
+</html>
