@@ -334,8 +334,8 @@ export function ProjectDetail({ projectId, navigateBack }: ProjectDetailProps) {
   return (
     <div className="max-w-6xl mx-auto bg-[#fdfdfd]">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-[100] bg-[#fdfdfd] border-b shadow-sm" id="timeline">
-        <div className="max-w-6xl mx-auto px-4 transition-all duration-300 ${showHeaderTimeline ? 'py-4' : 'py-2'}">
+      <header className="fixed top-0 left-0 right-0 z-[100] bg-[#fdfdfd] border-b" id="timeline">
+        <div className="max-w-6xl mx-auto px-4 py-6 transition-all duration-300">
           <div className={`flex items-center ${showHeaderTimeline ? 'mb-6' : 'mb-0'}`}>
             <motion.button
               onClick={goBack}
@@ -476,9 +476,9 @@ export function ProjectDetail({ projectId, navigateBack }: ProjectDetailProps) {
                 <p className="text-muted-foreground mb-8">
                   No protótipo, dei uma atenção especial e optei por desenvolver um protótipo de alta fidelidade para que os usuários testados tivessem uma experiência mais próxima o possível do resultado final. A decisão de usar o protótipo de alta fidelidade ajudou na compreensão dos usuários com pouco contato com tecnologia e com idade mais avançada.
                 </p>
-                <div className="aspect-video rounded-lg overflow-hidden mb-8">
+                <div className="aspect-video rounded-lg overflow-hidden mb-4">
                   <iframe
-                    src="https://player.vimeo.com/video/793933696?h=c6d9d6c0f5&autoplay=1&autopause=0&background=1&loop=1&muted=1"
+                    src="https://player.vimeo.com/video/793933696?h=c6d9d6c0f5&autoplay=1&loop=1"
                     className="w-full h-full"
                     frameBorder="0"
                     allow="autoplay; fullscreen; picture-in-picture"
@@ -486,14 +486,31 @@ export function ProjectDetail({ projectId, navigateBack }: ProjectDetailProps) {
                     title="High-fidelity prototype demonstration"
                   />
                 </div>
+                <p className="text-sm text-muted-foreground mb-8">
+                  Protótipo criado usando Figma + ProtoPie
+                </p>
               </section>
 
               {/* Usability Testing Section */}
               <section data-timeline-section="3" className="min-h-screen pt-2">
                 <h2 className="text-2xl font-medium mb-6">Teste de Usabilidade</h2>
-                <p className="text-muted-foreground">
-                  Details about the usability testing process will go here. This section should cover the testing methodology and key findings.
+                <p className="text-muted-foreground mb-8">
+                  Com o protótipo totalmente funcional, recrutamos os usuários para o teste. Colocamos como prioridade usuários extremos (com pouca ou nenhuma experiência com aplicativos e usuários com idade avançada), entendendo que se o resultados com esses usuários fossem bons, estaríamos resolvendo os principais problemas para os demais usuários.
                 </p>
+                <p className="text-muted-foreground mb-8">
+                  Recrutamos 15 usuários e aplicamos o primeiro teste com os 10 primeiros. Os usuários restantes testariam o protótipo com os ajustes apontados no primeiro teste, tendo assim os resultados optimizados.
+                </p>
+                <div className="mb-8">
+                  <h3 className="text-xl font-medium mb-4">Roteiro de Teste</h3>
+                  <p className="text-muted-foreground mb-4">
+                    O roteiro de teste apresentava 3 tarefas que o usuário testado deveria seguir:
+                  </p>
+                  <ul className="list-disc list-inside text-muted-foreground space-y-2 pl-4">
+                    <li>Realizar o Cadastro</li>
+                    <li>Validação de e-mail</li>
+                    <li>Solicitar vínculo com o condomínio</li>
+                  </ul>
+                </div>
               </section>
 
               {/* Results Section */}
