@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { ArrowLeft } from "lucide-react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
@@ -6,7 +6,6 @@ import userFlowImage from '../assets/userflow_condominium-conection.png';
 
 interface ProjectDetailProps {
   projectId: string | undefined;
-  navigate: (path: string, saveScroll?: boolean) => void;
   navigateBack: () => void;
 }
 
@@ -40,7 +39,7 @@ interface Project {
   categories: string[];
 }
 
-export function ProjectDetail({ projectId, navigate, navigateBack }: ProjectDetailProps) {
+export function ProjectDetail({ projectId, navigateBack }: ProjectDetailProps) {
   const { language } = useLanguage();
   const [isMounted, setIsMounted] = useState(false);
   const [activeSection, setActiveSection] = useState<number>(1);

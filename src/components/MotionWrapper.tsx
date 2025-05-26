@@ -1,4 +1,3 @@
-
 import { ReactNode, useRef, useEffect, useState } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 
@@ -11,7 +10,7 @@ interface MotionWrapperProps {
 export function MotionWrapper({ children, delay = 0, className = "" }: MotionWrapperProps) {
   const controls = useAnimation();
   const ref = useRef(null);
-  const inView = useInView(ref, { once: true, threshold: 0.1 });
+  const inView = useInView(ref, { once: true });
   const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {

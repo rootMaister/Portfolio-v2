@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
 import avatarImage from "../assets/avatar.svg";
-import { MouseIcon } from "lucide-react";
 
 export function Hero() {
   const { language } = useLanguage();

@@ -3,7 +3,6 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "../contexts/LanguageContext";
 import avatarImage from "../assets/avatar.svg";
-import resumePDF from "../assets/Vitor C. Costa - Product Designer.pdf";
 
 type NavigationProps = {
   navigate?: (path: string) => void;
