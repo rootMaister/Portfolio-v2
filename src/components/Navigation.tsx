@@ -57,24 +57,16 @@ export function Navigation({ navigate }: NavigationProps) {
     e.preventDefault();
     const element = document.getElementById(sectionId);
     if (element) {
-      const headerOffset = 100;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.scrollY - headerOffset;
-
-      element.scrollIntoView({ 
-        behavior: 'smooth',
-        block: 'start'
+      const topOffset = 64; // Align sections 64px from the top
+      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+      
+      window.scrollTo({
+        top: elementPosition - topOffset,
+        behavior: 'smooth'
       });
       
-      // Additional offset adjustment
-      setTimeout(() => {
-        window.scrollBy({
-          top: -headerOffset,
-          behavior: 'smooth'
-        });
-      }, 0);
+      setIsMenuOpen(false);
     }
-    setIsMenuOpen(false);
   };
   
   // Translations
@@ -123,141 +115,141 @@ export function Navigation({ navigate }: NavigationProps) {
   return (
     <header className="fixed top-8 w-full z-50 px-4">
       <div className="max-w-7xl mx-auto">
-        <div 
+      <div 
           className={`bg-white/70 backdrop-blur-md rounded-lg transition-all duration-300 ${
             isScrolled ? "border border-gray-200" : ""
-          }`}
-        >
+        }`}
+      >
           <div className="flex items-center py-4 px-6">
-            {/* 3-column layout for balanced centering */}
-            <div className="w-40 flex items-center">
-              <AnimatePresence>
-                {isScrolled && (
+          {/* 3-column layout for balanced centering */}
+          <div className="w-40 flex items-center">
+            <AnimatePresence>
+              {isScrolled && (
+                <motion.div
+                  className="flex items-center gap-3"
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  {/* Profile image */}
                   <motion.div
-                    className="flex items-center gap-3"
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    {/* Profile image */}
-                    <motion.div
                       className="h-8 w-8 overflow-hidden flex-shrink-0"
-                      initial={{ scale: 0.8 }}
-                      animate={{ scale: 1 }}
-                      transition={{ duration: 0.3, delay: 0.1 }}
-                    >
+                    initial={{ scale: 0.8 }}
+                    animate={{ scale: 1 }}
+                    transition={{ duration: 0.3, delay: 0.1 }}
+                  >
                       <img 
                         src={avatarImage}
                         alt="Vitor C. Costa"
                         className="w-full h-full object-contain"
-                      />
-                    </motion.div>
-                    
-                    {/* Name */}
-                    <motion.a 
-                      href="/"
-                      className="text-xl font-medium whitespace-nowrap"
-                      initial={{ x: -10, opacity: 0 }}
-                      animate={{ x: 0, opacity: 1 }}
-                      exit={{ x: -10, opacity: 0 }}
-                      transition={{ duration: 0.3, delay: 0.2 }}
-                      onClick={(e) => handleNavigate(e, "/")}
-                    >
-                      Vitor C. Costa
-                    </motion.a>
+                    />
                   </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-            
-            {/* Centered Navigation - Desktop */}
-            <div className="flex-1 hidden md:flex justify-center overflow-hidden">
-              <AnimatePresence>
-                {isScrolled && (
-                  <motion.nav 
-                    className="flex items-center"
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -20 }}
-                    transition={{ duration: 0.3 }}
+                  
+                  {/* Name */}
+                  <motion.a 
+                    href="/"
+                    className="text-xl font-medium whitespace-nowrap"
+                    initial={{ x: -10, opacity: 0 }}
+                    animate={{ x: 0, opacity: 1 }}
+                    exit={{ x: -10, opacity: 0 }}
+                    transition={{ duration: 0.3, delay: 0.2 }}
+                    onClick={(e) => handleNavigate(e, "/")}
                   >
-                    <ul className="flex items-center gap-6">
-                      <li>
+                    Vitor C. Costa
+                  </motion.a>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+          
+          {/* Centered Navigation - Desktop */}
+          <div className="flex-1 hidden md:flex justify-center overflow-hidden">
+            <AnimatePresence>
+              {isScrolled && (
+                <motion.nav 
+                  className="flex items-center"
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <ul className="flex items-center gap-6">
+                    <li>
                         <a 
                           href="#" 
                           className="hover:text-primary transition-colors" 
                           onClick={(e) => {
-                            e.preventDefault();
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        e.preventDefault();
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
                             setIsMenuOpen(false);
                           }}
                         >
-                          {text.home}
-                        </a>
-                      </li>
-                      <li>
+                        {text.home}
+                      </a>
+                    </li>
+                    <li>
                         <a 
                           href="#work" 
                           className="hover:text-primary transition-colors"
                           onClick={(e) => scrollToSection(e, 'work')}
                         >
-                          {text.work}
-                        </a>
-                      </li>
-                      <li>
+                        {text.work}
+                      </a>
+                    </li>
+                    <li>
                         <a 
                           href="#about" 
                           className="hover:text-primary transition-colors"
                           onClick={(e) => scrollToSection(e, 'about')}
                         >
-                          {text.about}
-                        </a>
-                      </li>
-                      <li>
+                        {text.about}
+                      </a>
+                    </li>
+                    <li>
                         <a 
                           href="#resume" 
                           className="hover:text-primary transition-colors"
                           onClick={(e) => scrollToSection(e, 'resume')}
                         >
-                          {text.resume}
-                        </a>
-                      </li>
-                      <li>
+                        {text.resume}
+                      </a>
+                    </li>
+                    <li>
                         <a 
                           href="#contact" 
                           className="hover:text-primary transition-colors"
                           onClick={(e) => scrollToSection(e, 'contact')}
                         >
-                          {text.contact}
-                        </a>
-                      </li>
-                    </ul>
-                  </motion.nav>
-                )}
-              </AnimatePresence>
+                        {text.contact}
+                      </a>
+                    </li>
+                  </ul>
+                </motion.nav>
+              )}
+            </AnimatePresence>
+          </div>
+          
+          {/* Right side with language switcher - Desktop */}
+          <div className="w-40 flex justify-end items-center">
+            <div className="hidden md:flex items-center">
+              <button
+                onClick={toggleLanguage}
+                className="px-2 py-1 rounded-md hover:bg-accent transition-colors text-sm"
+              >
+                {text.language}
+              </button>
             </div>
             
-            {/* Right side with language switcher - Desktop */}
-            <div className="w-40 flex justify-end items-center">
-              <div className="hidden md:flex items-center">
-                <button
-                  onClick={toggleLanguage}
-                  className="px-2 py-1 rounded-md hover:bg-accent transition-colors text-sm"
-                >
-                  {text.language}
-                </button>
-              </div>
-              
-              {/* Mobile Menu Button */}
-              <div className="flex items-center md:hidden">
-                <button
-                  onClick={() => setIsMenuOpen(!isMenuOpen)}
-                  className="p-2 rounded-md hover:bg-accent transition-colors"
-                  aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-                >
-                  {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-                </button>
+            {/* Mobile Menu Button */}
+            <div className="flex items-center md:hidden">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="p-2 rounded-md hover:bg-accent transition-colors"
+                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+              >
+                {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
               </div>
             </div>
           </div>

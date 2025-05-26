@@ -1,1 +1,36 @@
- 
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="1024" height="1024" viewBox="0 0 1024 1024" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1024" height="1024" fill="white"/>
+  <path fill-rule="evenodd" clip-rule="evenodd" d="M512 512
+    M400 300 q112 0 224 0 v50 q-20 0 -40 10 q-20 10 -30 30 q-10 20 -10 40 v300
+    q-112 0 -224 0 v-300 q0 -20 -10 -40 q-10 -20 -30 -30 q-20 -10 -40 -10 v-50" fill="none" stroke="black" stroke-width="2"/>
+  <path d="M512 350
+    a100 100 0 0 1 0 200
+    a100 100 0 0 1 0 -200" fill="black"/>
+  <path d="M462 600
+    q50 -30 100 0
+    l20 200
+    h-140
+    l20 -200" fill="black"/>
+  <path d="M412 250
+    q100 -50 200 0
+    l-20 50
+    q-80 -40 -160 0
+    l-20 -50" fill="black"/>
+  <circle cx="512" cy="512" r="30" fill="white"/>
+  <path d="M482 482
+    q30 -20 60 0
+    q0 20 0 40
+    q-30 20 -60 0
+    q0 -20 0 -40" fill="black"/>
+  <path d="M442 442
+    q20 -10 40 0
+    l10 20
+    q-20 10 -40 0
+    l-10 -20" fill="black"/>
+  <path d="M542 442
+    q20 -10 40 0
+    l10 20
+    q-20 10 -40 0
+    l-10 -20" fill="black"/>
+</svg> 
