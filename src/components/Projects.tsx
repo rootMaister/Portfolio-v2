@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ProjectCard } from "./ProjectCard";
 import { useLanguage } from "../contexts/LanguageContext";
+import { useState } from "react";
+import { useEffect } from "react";
 
 interface ProjectsProps {
   navigate?: (path: string, saveScroll?: boolean) => void;

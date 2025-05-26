@@ -1,5 +1,5 @@
-
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import { ReactNode, useContext } from "react";
+import { createContext, useEffect, useState } from "react";
 
 // Define available languages
 export type Language = 'pt-BR' | 'en-US';

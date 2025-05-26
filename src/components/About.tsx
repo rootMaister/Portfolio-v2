@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 import aboutMeImage from "../assets/about me.png";
+import { useEffect } from "react";
+import { useState } from "react";
 
 export function About() {
   const { language } = useLanguage();

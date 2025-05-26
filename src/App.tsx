@@ -68,21 +68,6 @@ export default function App() {
     }
   }, [currentPath, savedScrollPosition]);
 
-  // Function to handle navigation without page reload
-  const navigate = (path: string, saveScroll = false) => {
-    if (saveScroll) {
-      setSavedScrollPosition(window.scrollY);
-    }
-    window.history.pushState({}, "", path);
-    setCurrentPath(path);
-    window.scrollTo(0, 0);
-  };
-
-  // Function to navigate back to main page and restore scroll position
-  const navigateBack = () => {
-    window.history.back();
-  };
-
   return (
     <LanguageProvider>
       <div className="bg-background">
@@ -93,20 +78,19 @@ export default function App() {
         ) : currentPath.startsWith("/project/") ? (
           <div className="min-h-screen flex flex-col">
             <main className="flex-1">
-              <ProjectDetail 
-                projectId={currentPath.split("/").pop()} 
-                navigate={navigate}
-                navigateBack={navigateBack}
-              />
+              <ProjectDetail
+                  projectId={currentPath.split("/").pop()} navigateBack={function (): void {
+                    throw new Error("Function not implemented.");
+                  } }              />
             </main>
             <Footer />
           </div>
         ) : (
           <div className="min-h-screen flex flex-col">
-            <Navigation navigate={navigate} />
+            <Navigation />
             <main className="flex-1">
               <Hero />
-              <Projects navigate={(path: string) => navigate(path, true)} />
+              <Projects />
               <About />
               <ResumeSection />
               <Contact />
