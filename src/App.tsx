@@ -68,6 +68,30 @@ export default function App() {
     }
   }, [currentPath, savedScrollPosition]);
 
+  // Navigation functions
+  const navigate = (path: string, saveScroll = false) => {
+    if (saveScroll) {
+      setSavedScrollPosition(window.scrollY);
+    }
+    window.history.pushState({}, '', path);
+    setCurrentPath(path);
+  };
+
+  const navigateBack = () => {
+    window.history.pushState({}, '', '/');
+    setCurrentPath('/');
+    // Restore scroll position if it was saved
+    if (savedScrollPosition > 0) {
+      setTimeout(() => {
+        window.scrollTo({
+          top: savedScrollPosition,
+          behavior: 'auto'
+        });
+        setSavedScrollPosition(0);
+      }, 100);
+    }
+  };
+
   return (
     <LanguageProvider>
       <div className="bg-background">
@@ -79,9 +103,9 @@ export default function App() {
           <div className="min-h-screen flex flex-col">
             <main className="flex-1">
               <ProjectDetail
-                  projectId={currentPath.split("/").pop()} navigateBack={function (): void {
-                    throw new Error("Function not implemented.");
-                  } }              />
+                projectId={currentPath.split("/").pop()}
+                navigateBack={navigateBack}
+              />
             </main>
             <Footer />
           </div>
@@ -90,7 +114,7 @@ export default function App() {
             <Navigation />
             <main className="flex-1">
               <Hero />
-              <Projects />
+              <Projects navigate={navigate} />
               <About />
               <ResumeSection />
               <Contact />
