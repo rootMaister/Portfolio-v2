@@ -121,7 +121,7 @@ export function Navigation({ navigate }: NavigationProps) {
         >
           <div className="flex items-center justify-between py-4 px-6">
             {/* Left side - Logo and Name */}
-            <div className="flex items-center">
+            <div className="flex items-center w-[200px]">
               <AnimatePresence>
                 {isScrolled && (
                   <motion.div
@@ -173,7 +173,7 @@ export function Navigation({ navigate }: NavigationProps) {
                     exit={{ opacity: 0, y: -20 }}
                     transition={{ duration: 0.3 }}
                   >
-                    <ul className="flex items-center gap-6">
+                    <ul className="flex items-center gap-8">
                       <li>
                         <a 
                           href="#" 
@@ -221,7 +221,7 @@ export function Navigation({ navigate }: NavigationProps) {
             </div>
 
             {/* Right side - Language Toggle and Mobile Menu */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 w-[200px] justify-end">
               {/* Language Toggle - Desktop Only */}
               <button
                 onClick={toggleLanguage}
