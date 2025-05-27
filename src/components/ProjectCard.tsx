@@ -17,7 +17,6 @@ export function ProjectCard({
   title,
   description,
   image,
-  categories,
   href,
   index,
   viewText,
