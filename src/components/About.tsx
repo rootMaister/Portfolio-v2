@@ -14,19 +14,66 @@ export function About() {
   }, []);
   
   // Hardcoded translations
+
+  const AboutMePT = () => (
+    <>
+      <p>
+        Olá! Me chamo <strong>Vitor</strong>, nascido em São Paulo, Brasil. Sou formado em <strong>Análise e
+        Desenvolvimento de Sistemas</strong> e atuo há 5 anos como <strong>UX/UI Designer</strong>, criando
+        experiências digitais para plataformas web e mobile.
+      </p>
+      <br />
+      <p>
+        Ao longo da minha trajetória, colaborei no desenvolvimento de <strong>plataformas jurídicas</strong>,
+        <strong> dashboards analíticos</strong>, <strong>e-commerces</strong>, <strong>sistemas internos com
+        gamificação</strong> e <strong>aplicativos condominiais</strong>. Acredito que um bom design nasce da
+        combinação entre <strong>lógica, empatia e colaboração</strong> — princípios que levo para cada projeto em que atuo.
+      </p>
+      <br />
+      <p>
+        Tenho como foco a construção de <strong>soluções funcionais, visualmente claras e acessíveis</strong>,
+        sempre colocando o usuário no centro de cada decisão.
+      </p>
+    </>
+  );
+  
+  const AboutMeEN = () => (
+    <>
+      <p>
+        Hi! I'm <strong>Vitor</strong>, born in São Paulo, Brazil. I have a degree in <strong>Systems Analysis
+        and Development</strong> and 5 years of experience working as a <strong>UX/UI Designer</strong>,
+        creating digital experiences for web and mobile platforms.
+      </p>
+      <br />
+      <p>
+        Throughout my career, I've contributed to the development of <strong>legal platforms</strong>,
+        <strong> analytical dashboards</strong>, <strong>e-commerce interfaces</strong>, <strong>gamified internal systems</strong>, and
+        <strong> condominium apps</strong>. I believe great design is the result of a strong balance between
+        <strong> logic, empathy, </strong> and <strong> collaboration</strong> — values I carry into every project.
+      </p>
+      <br />
+      <p>
+        I focus on building <strong>functional, visually clear, and accessible solutions</strong>, always keeping
+        the user at the center of the process.
+      </p>
+    </>
+  );
+  
   const content = {
     "pt-BR": {
       title: "Sobre mim",
       subtitle: "Designer de produto com 5+ anos de experiência",
-      bio: "Olá, sou Vitor C. Costa, um designer de produto baseado em São Paulo. Comecei minha jornada no design em 2018 e desde então tenho trabalhado com startups e empresas estabelecidas para criar produtos digitais centrados no usuário. Minha abordagem combina pesquisa de usuário, estratégia de produto e design de interface para criar experiências que resolvem problemas reais.",
+      bio: AboutMePT,
       skills: "Habilidades",
       skillsList: [
-        "Design de Produto",
-        "UX/UI Design",
-        "Design System",
-        "Prototipagem",
-        "Pesquisa de Usuário",
-        "Design Sprint"
+        {
+          category: "Research e Discovery",
+          items: ["Análise de Competidores", "Entrevistas", "Pesquisa", "Teste de Usabilidade"]
+        },
+        {
+          category: "Design",
+          items: ["Wireframing", "Prototipagem", "Comunicação Visual", "UI Design", "Design System", "UX/UI Design"]
+        }
       ],
       experience: "Experiência",
       experienceList: [
@@ -50,15 +97,17 @@ export function About() {
     "en-US": {
       title: "About me",
       subtitle: "Product designer with 5+ years of experience",
-      bio: "Hello, I'm Vitor C. Costa, a product designer based in São Paulo. I started my design journey in 2018 and since then I've been working with startups and established companies to create user-centered digital products. My approach combines user research, product strategy, and interface design to create experiences that solve real problems.",
+      bio: AboutMeEN,
       skills: "Skills",
       skillsList: [
-        "Product Design",
-        "UX/UI Design",
-        "Design Systems",
-        "Prototyping",
-        "User Research",
-        "Design Sprint"
+        {
+          category: "Research & Discovery",
+          items: ["Competitor Analysis", "Interviews", "Surveys", "Usability Testing"]
+        },
+        {
+          category: "Design",
+          items: ["Wireframing", "Prototyping", "Visual Communication", "UI Design", "Design System", "UX/UI Design"]
+        }
       ],
       experience: "Experience",
       experienceList: [
@@ -126,16 +175,23 @@ export function About() {
             transition={{ duration: 0.6, delay: 0.4 }}
           >
             <p className="text-muted-foreground mb-8">
-              {text.bio}
+              {typeof text.bio === 'function' ? text.bio() : text.bio}
             </p>
             
             <div className="mb-8">
               <h3 className="text-lg font-medium mb-4">{text.skills}</h3>
-              <div className="flex flex-wrap gap-2">
-                {text.skillsList.map((skill, index) => (
-                  <span key={index} className="px-3 py-1 bg-secondary rounded-full text-secondary-foreground text-sm">
-                    {skill}
-                  </span>
+              <div className="space-y-6">
+                {text.skillsList.map((skillGroup, groupIndex) => (
+                  <div key={groupIndex}>
+                    <h4 className="text-base font-medium mb-3 text-muted-foreground">{skillGroup.category}</h4>
+                    <div className="flex flex-wrap gap-2">
+                      {skillGroup.items.map((skill, index) => (
+                        <span key={index} className="px-3 py-1 bg-secondary rounded-full text-secondary-foreground text-sm">
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>

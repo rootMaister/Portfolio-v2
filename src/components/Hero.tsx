@@ -16,12 +16,12 @@ export function Hero() {
   const content = {
     "pt-BR": {
       name: "Vitor C. Costa",
-      subtitle: "Especialista em criar interfaces e experiências há 5 anos.",
+      subtitle: "Desenhando experiências e interfaces há 5 anos.",
       scrollDown: "Role para baixo"
     },
     "en-US": {
       name: "Vitor C. Costa",
-      subtitle: "Specialist in creating interfaces and experiences for 5 years.",
+      subtitle: "Designing experiences and interfaces for 5 years.",
       scrollDown: "Scroll down"
     }
   };

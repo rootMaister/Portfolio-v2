@@ -115,7 +115,7 @@ export function Navigation({ navigate }: NavigationProps) {
     <header className="fixed top-8 w-full z-50 px-4">
       <div className="max-w-7xl mx-auto">
       <div 
-          className={`bg-white/70 backdrop-blur-md rounded-lg transition-all duration-300 ${
+          className={`bg-white/70 backdrop-blur-md rounded-3xl transition-all duration-300 ${
             isScrolled ? "border border-gray-200" : ""
         }`}
       >
@@ -214,15 +214,6 @@ export function Navigation({ navigate }: NavigationProps) {
                         {text.resume}
                       </a>
                     </li>
-                    <li>
-                        <a 
-                          href="#contact" 
-                          className="hover:text-primary transition-colors"
-                          onClick={(e) => scrollToSection(e, 'contact')}
-                        >
-                        {text.contact}
-                      </a>
-                    </li>
                   </ul>
                 </motion.nav>
               )}
@@ -261,7 +252,7 @@ export function Navigation({ navigate }: NavigationProps) {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -20 }}
-          className={`fixed left-8 right-8 top-[88px] bg-background z-40 md:hidden rounded-lg ${
+          className={`fixed left-8 right-8 top-[88px] bg-background z-40 md:hidden rounded-3xl ${
             isScrolled ? "border border-border" : "border border-transparent"
           }`}
         >
@@ -305,15 +296,6 @@ export function Navigation({ navigate }: NavigationProps) {
                   onClick={(e) => scrollToSection(e, 'resume')}
                 >
                   {text.resume}
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#contact" 
-                  className="text-xl hover:text-primary transition-colors"
-                  onClick={(e) => scrollToSection(e, 'contact')}
-                >
-                  {text.contact}
                 </a>
               </li>
               <li>

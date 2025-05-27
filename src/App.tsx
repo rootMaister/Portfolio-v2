@@ -3,7 +3,6 @@ import { Hero } from "./components/Hero";
 import { Projects } from "./components/Projects";
 import { About } from "./components/About";
 import { ResumeSection } from "./components/ResumeSection";
-import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { ProjectDetail } from "./components/ProjectDetail";
 import { LanguageProvider } from "./contexts/LanguageContext";
@@ -117,7 +116,6 @@ export default function App() {
               <Projects navigate={navigate} />
               <About />
               <ResumeSection />
-              <Contact />
             </main>
             <Footer />
           </div>

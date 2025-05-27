@@ -36,13 +36,13 @@ export function ProjectCard({
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: index * 0.1 }}
-      className="group"
+      className="group bg-[#FDFDFD] rounded-3xl overflow-hidden border"
     >
-      <div className="overflow-hidden rounded-lg mb-4">
+      <div className="overflow-hidden rounded-b-3xl">
         <motion.div
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.3 }}
-          className="aspect-[4/3]"
+          className="aspect-[16/9]"
         >
           <ImageWithFallback
             src={image}
@@ -52,18 +52,7 @@ export function ProjectCard({
         </motion.div>
       </div>
       
-      <div>
-        <div className="flex flex-wrap gap-2 mb-2">
-          {categories.map((category, idx) => (
-            <span
-              key={idx}
-              className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-muted hover:bg-muted/80 transition-colors"
-            >
-              {category}
-            </span>
-          ))}
-        </div>
-        
+      <div className="p-8">
         <h3 className="text-xl font-medium mb-2">{title}</h3>
         
         <p className="text-muted-foreground mb-4">
@@ -73,7 +62,7 @@ export function ProjectCard({
         <motion.a
           href={href}
           onClick={handleClick}
-          className="inline-flex items-center text-primary hover:underline"
+          className="inline-flex items-center text-black hover:opacity-70 transition-opacity font-medium"
           whileHover={{ x: 5 }}
           transition={{ duration: 0.2 }}
         >
