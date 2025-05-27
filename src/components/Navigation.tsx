@@ -114,67 +114,67 @@ export function Navigation({ navigate }: NavigationProps) {
   return (
     <header className="fixed top-8 w-full z-50 px-4">
       <div className="max-w-7xl mx-auto">
-      <div 
+        <div 
           className={`bg-white/70 backdrop-blur-md rounded-3xl transition-all duration-300 ${
             isScrolled ? "border border-gray-200" : ""
-        }`}
-      >
-          <div className="flex items-center py-4 px-6">
-          {/* 3-column layout for balanced centering */}
-          <div className="w-40 flex items-center">
-            <AnimatePresence>
-              {isScrolled && (
-                <motion.div
-                  className="flex items-center gap-3"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  {/* Profile image */}
+          }`}
+        >
+          <div className="flex items-center justify-between py-4 px-6">
+            {/* Left side - Logo and Name */}
+            <div className="flex items-center">
+              <AnimatePresence>
+                {isScrolled && (
                   <motion.div
-                      className="h-8 w-8 overflow-hidden flex-shrink-0"
-                    initial={{ scale: 0.8 }}
-                    animate={{ scale: 1 }}
-                    transition={{ duration: 0.3, delay: 0.1 }}
+                    className="flex items-center gap-3"
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    transition={{ duration: 0.3 }}
                   >
+                    {/* Profile image */}
+                    <motion.div
+                      className="h-8 w-8 overflow-hidden flex-shrink-0"
+                      initial={{ scale: 0.8 }}
+                      animate={{ scale: 1 }}
+                      transition={{ duration: 0.3, delay: 0.1 }}
+                    >
                       <img 
                         src={avatarImage}
                         alt="Vitor C. Costa"
                         className="w-full h-full object-contain"
-                    />
+                      />
+                    </motion.div>
+                    
+                    {/* Name */}
+                    <motion.a 
+                      href="/"
+                      className="text-xl font-medium whitespace-nowrap"
+                      initial={{ x: -10, opacity: 0 }}
+                      animate={{ x: 0, opacity: 1 }}
+                      exit={{ x: -10, opacity: 0 }}
+                      transition={{ duration: 0.3, delay: 0.2 }}
+                      onClick={(e) => handleNavigate(e, "/")}
+                    >
+                      Vitor C. Costa
+                    </motion.a>
                   </motion.div>
-                  
-                  {/* Name */}
-                  <motion.a 
-                    href="/"
-                    className="text-xl font-medium whitespace-nowrap"
-                    initial={{ x: -10, opacity: 0 }}
-                    animate={{ x: 0, opacity: 1 }}
-                    exit={{ x: -10, opacity: 0 }}
-                    transition={{ duration: 0.3, delay: 0.2 }}
-                    onClick={(e) => handleNavigate(e, "/")}
+                )}
+              </AnimatePresence>
+            </div>
+            
+            {/* Center - Desktop Navigation */}
+            <div className="hidden md:flex justify-center flex-1">
+              <AnimatePresence>
+                {isScrolled && (
+                  <motion.nav 
+                    className="flex items-center"
+                    initial={{ opacity: 0, y: -20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -20 }}
+                    transition={{ duration: 0.3 }}
                   >
-                    Vitor C. Costa
-                  </motion.a>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
-          
-          {/* Centered Navigation - Desktop */}
-          <div className="flex-1 hidden md:flex justify-center overflow-hidden">
-            <AnimatePresence>
-              {isScrolled && (
-                <motion.nav 
-                  className="flex items-center"
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                  transition={{ duration: 0.3 }}
-                >
-                  <ul className="flex items-center gap-6">
-                    <li>
+                    <ul className="flex items-center gap-6">
+                      <li>
                         <a 
                           href="#" 
                           className="hover:text-primary transition-colors" 
@@ -214,33 +214,33 @@ export function Navigation({ navigate }: NavigationProps) {
                         {text.resume}
                       </a>
                     </li>
-                  </ul>
-                </motion.nav>
-              )}
-            </AnimatePresence>
-          </div>
-          
-          {/* Right side with language switcher - Desktop */}
-          <div className="w-40 flex justify-end items-center">
-            <div className="hidden md:flex items-center">
+                    </ul>
+                  </motion.nav>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Right side - Language Toggle and Mobile Menu */}
+            <div className="flex items-center gap-4">
+              {/* Language Toggle - Desktop Only */}
               <button
                 onClick={toggleLanguage}
-                className="px-2 py-1 rounded-md hover:bg-accent transition-colors text-sm"
+                className="hidden md:block px-2 py-1 text-sm hover:text-primary transition-colors"
               >
                 {text.language}
               </button>
-            </div>
-            
-            {/* Mobile Menu Button */}
-            <div className="flex items-center md:hidden">
+
+              {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 rounded-md hover:bg-accent transition-colors"
-                aria-label={isMenuOpen ? "Close menu" : "Open menu"}
+                className="md:hidden"
               >
-                {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
+                {isMenuOpen ? (
+                  <X className="h-6 w-6" />
+                ) : (
+                  <Menu className="h-6 w-6" />
+                )}
               </button>
-              </div>
             </div>
           </div>
         </div>

@@ -183,13 +183,13 @@ export function About() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative md:w-[500px]"
+              className="relative w-full md:w-[500px]"
             >
-              <div className="w-[500px] h-[500px] rounded-xl overflow-hidden">
+              <div className="w-full md:w-[500px] aspect-[3/4] rounded-xl overflow-hidden">
                 <img
                   src={aboutMeImage}
                   alt="Vitor C. Costa - About"
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-contain"
                 />
               </div>
             </motion.div>
