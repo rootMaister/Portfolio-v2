@@ -1,53 +1,50 @@
+import { useLanguage } from "../contexts/LanguageContext";
+import { useState, useEffect } from "react";
+import { motion } from "framer-motion";
+
 export function Footer() {
-  const currentYear = new Date().getFullYear();
+  const { language } = useLanguage();
+  const [isMounted, setIsMounted] = useState(false);
   
-  // Hardcoded translations to avoid context issues
-  const copyright = {
-    "pt-BR": `© ${currentYear} Vitor C. Costa. Todos os direitos reservados.`,
-    "en-US": `© ${currentYear} Vitor C. Costa. All rights reserved.`
-  };
+  // Set mounted state
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   
-  const links = {
+  const content = {
     "pt-BR": {
-      work: "Trabalhos",
-      about: "Sobre",
-      contact: "Contato"
+      message: "Obrigado por scrollar :D",
+      copyright: "© 2025 Vitor C. Costa. Todos os direitos reservados."
     },
     "en-US": {
-      work: "Work",
-      about: "About",
-      contact: "Contact"
+      message: "Thanks for scrolling :D",
+      copyright: "© 2025 Vitor C. Costa. All rights reserved."
     }
   };
   
-  // Detect language from HTML tag or default to Portuguese
-  const htmlLang = 
-    typeof document !== 'undefined' 
-      ? document.documentElement.lang 
-      : 'pt-BR';
-      
-  const language = (htmlLang === 'en-US') ? 'en-US' : 'pt-BR';
+  // Use simplified content before mount to avoid hydration issues
+  if (!isMounted) {
+    return (
+      <footer className="py-8 px-4 md:px-8">
+        <div className="max-w-7xl mx-auto"></div>
+      </footer>
+    );
+  }
+  
+  const text = content[language];
   
   return (
-    <footer className="py-8 px-4 md:px-8 border-t border-border">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-        <div className="mb-4 md:mb-0">
-          <p className="text-sm text-muted-foreground">
-            {copyright[language]}
-          </p>
-        </div>
-        
-        <div className="flex gap-6">
-          <a href="#work" className="text-sm hover:text-primary/80 transition-colors">
-            {links[language].work}
-          </a>
-          <a href="#about" className="text-sm hover:text-primary/80 transition-colors">
-            {links[language].about}
-          </a>
-          <a href="#contact" className="text-sm hover:text-primary/80 transition-colors">
-            {links[language].contact}
-          </a>
-        </div>
+    <footer className="py-8 px-4 md:px-8">
+      <div className="max-w-7xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-center text-muted-foreground space-y-2"
+        >
+          <p>{text.message}</p>
+          <p className="text-sm">{text.copyright}</p>
+        </motion.div>
       </div>
     </footer>
   );
