@@ -58,15 +58,17 @@ export function ProjectCard({
           {description}
         </p>
         
-        <motion.a
-          href={href}
-          onClick={handleClick}
-          className="inline-flex items-center text-black hover:opacity-70 transition-opacity font-medium"
-          whileHover={{ x: 5 }}
-          transition={{ duration: 0.2 }}
-        >
-          {viewText} →
-        </motion.a>
+        <div className="flex items-center">
+          <motion.a
+            href={href}
+            onClick={handleClick}
+            className="inline-flex items-center text-black hover:opacity-70 transition-opacity font-medium"
+            whileHover={{ x: 5 }}
+            transition={{ duration: 0.2 }}
+          >
+            {viewText} →
+          </motion.a>
+        </div>
       </div>
     </motion.div>
   );

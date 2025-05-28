@@ -10,6 +10,7 @@ import { useState, useEffect, useRef } from "react";
 
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
+  const [isNavigatingBack, setIsNavigatingBack] = useState(false);
   const [currentPath, setCurrentPath] = useState("/");
   const [savedScrollPosition, setSavedScrollPosition] = useState(0);
   const hasRestoredScroll = useRef(false);
@@ -31,6 +32,7 @@ export default function App() {
       
       // If navigating back to home via browser back button
       if (newPath === "/" && savedScrollPosition > 0) {
+        setIsNavigatingBack(true);
         // Use setTimeout to ensure the DOM has updated before scrolling
         setTimeout(() => {
           window.scrollTo({
@@ -39,6 +41,10 @@ export default function App() {
           });
           // Reset after use
           setSavedScrollPosition(0);
+          // Hide loading screen after scroll is restored
+          setTimeout(() => {
+            setIsNavigatingBack(false);
+          }, 300);
         }, 100);
       }
     };
@@ -77,6 +83,7 @@ export default function App() {
   };
 
   const navigateBack = () => {
+    setIsNavigatingBack(true);
     window.history.pushState({}, '', '/');
     setCurrentPath('/');
     // Restore scroll position if it was saved
@@ -87,9 +94,28 @@ export default function App() {
           behavior: 'auto'
         });
         setSavedScrollPosition(0);
+        // Hide loading screen after scroll is restored
+        setTimeout(() => {
+          setIsNavigatingBack(false);
+        }, 300);
       }, 100);
+    } else {
+      // If no scroll position to restore, just hide the loading screen
+      setTimeout(() => {
+        setIsNavigatingBack(false);
+      }, 300);
     }
   };
+
+  // Loading screen component
+  const LoadingScreen = () => (
+    <div className="fixed inset-0 bg-background z-50 flex items-center justify-center">
+      <div className="flex flex-col items-center gap-4">
+        <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
+        <p className="text-muted-foreground">Returning to projects...</p>
+      </div>
+    </div>
+  );
 
   return (
     <LanguageProvider>
@@ -120,6 +146,7 @@ export default function App() {
             <Footer />
           </div>
         )}
+        {isNavigatingBack && <LoadingScreen />}
       </div>
     </LanguageProvider>
   );
