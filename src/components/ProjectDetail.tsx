@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { useTranslation } from 'react-i18next';
 import { MarkdownRenderer } from './MarkdownRenderer';
 import { projects } from '../data/projects';
 import { ArrowLeft } from "lucide-react";
@@ -14,7 +13,6 @@ interface ProjectDetailProps {
 }
 
 export const ProjectDetail: React.FC<ProjectDetailProps> = ({ projectId, navigateBack }) => {
-  const { i18n } = useTranslation();
   const { language, setLanguage } = useLanguage();
   const project = projects.find(p => p.id === projectId);
   const [content, setContent] = useState<string>('');
