@@ -32,12 +32,12 @@ export function Hero() {
     "pt-BR": {
       name: "Vitor C. Costa",
       subtitle: "Desenhando experiências e interfaces há 5 anos.",
-      scrollDown: "Ver projetos"
+      scrollDown: "Veja meus projetos"
     },
     "en-US": {
       name: "Vitor C. Costa",
       subtitle: "Designing experiences and interfaces for 5 years.",
-      scrollDown: "View projects"
+      scrollDown: "View my projects"
     }
   };
   
