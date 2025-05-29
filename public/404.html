@@ -4,23 +4,23 @@
   <meta charset="utf-8">
   <title>Redirecting...</title>
   <script>
-    // Get the current path and query string
-    const path = window.location.pathname;
-    const search = window.location.search;
+    // Split the path to get the repository name (if any)
+    const segments = window.location.pathname.split('/');
+    const repoName = segments[1] === 'Portfolio-v2-1' ? '/Portfolio-v2-1' : '';
     
-    // Save it to session storage
-    sessionStorage.setItem('redirect_path', path + search);
+    // Store the full path after the repo name
+    const fullPath = segments.slice(repoName ? 2 : 1).join('/');
     
-    // Redirect to the main page while preserving the base path
-    const basePath = path.split('/').slice(0, -1).join('/');
-    window.location.replace(
-      basePath + '/' + 
-      (basePath ? '?' : '') + 
-      (basePath ? 'p=' + encodeURIComponent(path + search) : '')
-    );
+    // Save the path to localStorage (more reliable than sessionStorage for redirects)
+    if (fullPath) {
+      localStorage.setItem('redirect_path', '/' + fullPath);
+    }
+    
+    // Redirect to the homepage
+    window.location.href = repoName + '/';
   </script>
 </head>
 <body>
-  Redirecting...
+  <p>Redirecting...</p>
 </body>
 </html> 

@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
+import { getAssetPath } from "../utils/assetPath";
 
 interface ProjectCardProps {
   title: string;
@@ -44,7 +45,7 @@ export function ProjectCard({
           className="aspect-[16/9]"
         >
           <ImageWithFallback
-            src={image}
+            src={getAssetPath(image)}
             alt={title}
             className="w-full h-full object-cover transition-transform"
           />

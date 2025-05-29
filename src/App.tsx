@@ -8,20 +8,31 @@ import { ProjectDetail } from "./components/ProjectDetail";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { useState, useEffect, useRef } from "react";
 
+// Get the base path for GitHub Pages
+const getBasePath = () => {
+  // Check if we're on GitHub Pages
+  if (window.location.hostname.includes('github.io')) {
+    return '/Portfolio-v2-1';
+  }
+  return '';
+};
+
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isNavigatingBack, setIsNavigatingBack] = useState(false);
   const [currentPath, setCurrentPath] = useState<string>(window.location.pathname);
   const [savedScrollPosition, setSavedScrollPosition] = useState(0);
   const hasRestoredScroll = useRef(false);
+  const basePath = getBasePath();
   
   useEffect(() => {
     // Check for redirect from 404.html
-    const redirect = sessionStorage.getItem('redirect_path');
+    const redirect = localStorage.getItem('redirect_path');
     if (redirect) {
-      sessionStorage.removeItem('redirect_path');
-      setCurrentPath(redirect);
-      window.history.replaceState(null, '', redirect);
+      localStorage.removeItem('redirect_path');
+      const newPath = basePath + redirect;
+      setCurrentPath(newPath);
+      window.history.replaceState(null, '', newPath);
     }
 
     // Handle browser back/forward
@@ -31,7 +42,7 @@ export default function App() {
 
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
-  }, []);
+  }, [basePath]);
 
   useEffect(() => {
     // Handle loading state
@@ -91,14 +102,14 @@ export default function App() {
     }
   }, [currentPath, savedScrollPosition]);
 
-  // Navigation functions
+  // Update navigate function to handle base path
   const navigate = (path: string, saveScroll = false) => {
     if (saveScroll) {
-      // Save current scroll position before navigation
       sessionStorage.setItem('scrollPosition', window.scrollY.toString());
     }
-    setCurrentPath(path);
-    window.history.pushState(null, '', path);
+    const newPath = basePath + path;
+    setCurrentPath(newPath);
+    window.history.pushState(null, '', newPath);
   };
 
   const navigateBack = () => {
@@ -106,7 +117,6 @@ export default function App() {
     if (savedScroll) {
       sessionStorage.removeItem('scrollPosition');
       navigate('/', false);
-      // Restore scroll position after a short delay to ensure content is rendered
       setTimeout(() => {
         window.scrollTo(0, parseInt(savedScroll));
       }, 100);
@@ -114,6 +124,12 @@ export default function App() {
       navigate('/', false);
     }
   };
+
+  // Update path matching to handle base path
+  const normalizedPath = currentPath.replace(basePath, '');
+  const projectMatch = normalizedPath.match(/^\/project\/(.+)/);
+  const isProjectDetail = !!projectMatch;
+  const projectId = projectMatch?.[1];
 
   // Loading screen component
   const LoadingScreen = () => (
@@ -124,11 +140,6 @@ export default function App() {
       </div>
     </div>
   );
-
-  // Check if we're on a project detail page
-  const projectMatch = currentPath.match(/^\/project\/(.+)/);
-  const isProjectDetail = !!projectMatch;
-  const projectId = projectMatch?.[1];
 
   return (
     <LanguageProvider>
@@ -149,7 +160,7 @@ export default function App() {
           </div>
         ) : (
           <div className="min-h-screen flex flex-col">
-            <Navigation />
+            <Navigation navigate={navigate} />
             <main className="flex-1">
               <Hero />
               <Projects navigate={navigate} />

@@ -83,7 +83,7 @@ ____________________________________
   Para compreender melhor o fluxo de entrada no app, desenhei a jornada do usuário considerando o ponto inicial: a leitura do QRCode fixado no condomínio.
 </p>
 
-![User Journey Map](../src/assets/projects/usability_test/userflow_condominium-conection.png)
+![User Journey Map](/public/images/project-1/userflow_condominium-conection.png)
 <p>
   A jornada nos ajudou a identificar que os usuários precisariam ser orientados de forma clara em cada etapa. Durante esse mapeamento, surgiram pontos de dúvida recorrentes, especialmente relacionados ao momento de validação e vínculo com o condomínio.
 </p><br><br>

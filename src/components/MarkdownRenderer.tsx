@@ -5,6 +5,7 @@ import rehypeRaw from 'rehype-raw';
 import rehypeSanitize, { defaultSchema } from 'rehype-sanitize';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { nord } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { getAssetPath } from '../utils/assetPath';
 
 interface MarkdownRendererProps {
   content: string;
@@ -55,7 +56,12 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
           img: ({ node, src, alt, ...props }) => {
             console.log('Rendering image:', { src, alt });
             return (
-              <img src={src} alt={alt} className="w-full rounded-lg" {...props} />
+              <img
+                src={src ? getAssetPath(src) : ''}
+                alt={alt || ''}
+                className="w-full rounded-lg shadow-lg my-8"
+                {...props}
+              />
             );
           },
           p: ({node, className, children, ...props}) => {
