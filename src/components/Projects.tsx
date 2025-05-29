@@ -40,7 +40,7 @@ export function Projects({ navigate }: ProjectsProps) {
   // Use simplified content while loading
   if (isLoading) {
     return (
-      <section id="work" className="min-h-screen flex items-center py-20 px-4 md:px-8">
+      <section id="work" className="min-h-screen flex items-start pt-32 pb-20 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="animate-pulse">
             <div className="h-8 bg-gray-200 rounded w-1/4 mb-4"></div>
@@ -59,7 +59,7 @@ export function Projects({ navigate }: ProjectsProps) {
   const text = content[language];
   
   return (
-    <section id="work" className="min-h-screen flex items-center py-20 px-4 md:px-8">
+    <section id="work" className="min-h-screen flex items-start pt-32 pb-20 px-4 md:px-8">
       <div className="max-w-7xl mx-auto w-full">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

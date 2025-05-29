@@ -1,11 +1,26 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useLanguage } from "../contexts/LanguageContext";
+import { ChevronDown } from "lucide-react";
 import avatarImage from "../assets/avatar.svg";
 
 export function Hero() {
   const { language } = useLanguage();
   const [isMounted, setIsMounted] = useState(false);
+  
+  const scrollToProjects = () => {
+    const projectsSection = document.getElementById('work');
+    if (projectsSection) {
+      const offset = 100; // Match navigation offset
+      const elementPosition = projectsSection.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
   
   // Set mounted state
   useEffect(() => {
@@ -17,12 +32,12 @@ export function Hero() {
     "pt-BR": {
       name: "Vitor C. Costa",
       subtitle: "Desenhando experiências e interfaces há 5 anos.",
-      scrollDown: "Role para baixo"
+      scrollDown: "Ver projetos"
     },
     "en-US": {
       name: "Vitor C. Costa",
       subtitle: "Designing experiences and interfaces for 5 years.",
-      scrollDown: "Scroll down"
+      scrollDown: "View projects"
     }
   };
   
@@ -62,7 +77,7 @@ export function Hero() {
       </motion.h1>
       
       <motion.p
-        className="text-lg md:text-xl text-muted-foreground text-center max-w-lg mb-8"
+        className="text-lg md:text-xl text-muted-foreground text-center max-w-lg mb-4"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -70,25 +85,17 @@ export function Hero() {
         {text.subtitle}
       </motion.p>
       
-      <motion.div
-        className="absolute bottom-8 flex flex-col items-center"
+      <motion.button
+        onClick={scrollToProjects}
+        className="md:absolute md:bottom-8 flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full hover:bg-black/80 transition-colors"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, delay: 0.6 }}
+        whileHover={{ y: 5 }}
       >
-        <span className="text-sm text-muted-foreground mb-2">{text.scrollDown}</span>
-        <motion.div 
-          className="w-6 h-10 border-2 border-muted-foreground rounded-full p-2 flex justify-center"
-          animate={{ y: [0, 5, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity, repeatType: "loop" }}
-        >
-          <motion.div 
-            className="w-1 h-2 bg-muted-foreground rounded-full"
-            animate={{ y: [0, 5, 0] }}
-            transition={{ duration: 1.5, repeat: Infinity, repeatType: "loop" }}
-          />
-        </motion.div>
-      </motion.div>
+        <span>{text.scrollDown}</span>
+        <ChevronDown size={20} />
+      </motion.button>
     </section>
   );
 }

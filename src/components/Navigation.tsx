@@ -54,18 +54,18 @@ export function Navigation({ navigate }: NavigationProps) {
   
   const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
-    const element = document.getElementById(sectionId);
-    if (element) {
-      const topOffset = 64; // Align sections 64px from the top
-      const elementPosition = element.getBoundingClientRect().top + window.scrollY;
+    const section = document.getElementById(sectionId);
+    if (section) {
+      const offset = 100; // Offset to account for header height
+      const elementPosition = section.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
       
       window.scrollTo({
-        top: elementPosition - topOffset,
-        behavior: 'smooth'
+        top: offsetPosition,
+        behavior: "smooth"
       });
-      
-      setIsMenuOpen(false);
     }
+    setIsMenuOpen(false);
   };
   
   // Translations

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { MarkdownRenderer } from './MarkdownRenderer';
 import { projects } from '../data/projects';
 import { ArrowLeft } from "lucide-react";
@@ -13,6 +14,7 @@ interface ProjectDetailProps {
 }
 
 export const ProjectDetail: React.FC<ProjectDetailProps> = ({ projectId, navigateBack }) => {
+  const { i18n } = useTranslation();
   const { language, setLanguage } = useLanguage();
   const project = projects.find(p => p.id === projectId);
   const [content, setContent] = useState<string>('');
@@ -80,12 +82,12 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ projectId, navigat
   return (
     <div className="max-w-6xl mx-auto bg-[#fdfdfd]">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-[100] bg-[#fdfdfd] border-b">
+      <header className="fixed top-0 left-0 right-0 z-[100]">
         <div className="max-w-6xl mx-auto px-4 py-6">
           <div className="flex items-center justify-between">
             <motion.button
               onClick={navigateBack}
-              className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
+              className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full hover:bg-black/80 transition-colors"
               whileHover={{ x: -5 }}
               transition={{ duration: 0.2 }}
             >
@@ -95,7 +97,7 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ projectId, navigat
 
             <motion.button
               onClick={toggleLanguage}
-              className="px-3 py-1 rounded-full bg-muted hover:bg-muted/80 transition-colors text-sm font-medium"
+              className="px-3 py-1 rounded-full bg-black text-white hover:bg-black/80 transition-colors text-sm font-medium"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               transition={{ duration: 0.2 }}

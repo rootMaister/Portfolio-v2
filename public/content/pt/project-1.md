@@ -77,34 +77,37 @@ ____________________________________________
 ____________________________________
 # Processo de Design
 
+<h4>1.</h4>
+<h3 class="text-lg font-semibold">🧭 Jornada do Usuário</h3>
+<p class="text-gray-600 text-sm">
+  Para compreender melhor o fluxo de entrada no app, desenhei a jornada do usuário considerando o ponto inicial: a leitura do QRCode fixado no condomínio.
+</p>
+
+![User Journey Map](../src/assets/projects/usability_test/userflow_condominium-conection.png)
+<p>
+  A jornada nos ajudou a identificar que os usuários precisariam ser orientados de forma clara em cada etapa. Durante esse mapeamento, surgiram pontos de dúvida recorrentes, especialmente relacionados ao momento de validação e vínculo com o condomínio.
+</p><br><br>
+<h4>2.</h4>
+<h3 class="text-lg font-semibold">🧪 Protótipo</h3>
+<p class="text-gray-600 text-sm">
+  Com base na jornada, desenvolvi um protótipo de alta fidelidade, com o objetivo de proporcionar aos usuários uma experiência de teste o mais próxima possível da interface real.
+</p>
+<div class="aspect-video">
+  <iframe
+    src="https://player.vimeo.com/video/793933696?h=c6d9d6c0f5&autoplay=1&loop=1"
+    class="w-full h-full"
+    frameborder="0"
+    allow="autoplay; fullscreen; picture-in-picture"
+    allowfullscreen
+    title="High-fidelity prototype demonstration">
+  </iframe>
+</div>
+<p>
+  A decisão de utilizar esse nível de fidelidade foi especialmente importante para usuários com pouca familiaridade com tecnologia ou idade mais avançada, garantindo maior compreensão e engajamento durante os testes.
+</p><br><br>
 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-  <!-- Item 1 -->
-  <div class="flex flex-col space-y-4">
-    <h4>1.</h4>
-    <h3 class="text-lg font-semibold">🧭 Jornada do Usuário</h3>
-    <p class="text-gray-600 text-sm">
-      Para compreender melhor o fluxo de entrada no app, desenhei a jornada do usuário considerando o ponto inicial: a leitura do QRCode fixado no condomínio.<br><br>
-      A jornada nos ajudou a identificar que os usuários precisariam ser orientados de forma clara em cada etapa. Durante esse mapeamento, surgiram pontos de dúvida recorrentes, especialmente relacionados ao momento de validação e vínculo com o condomínio.
-    </p>
-  </div>
-  <div class="flex flex-col space-y-4">
-    <h4>2.</h4>
-    <h3 class="text-lg font-semibold">🧪 Protótipo</h3>
-    <p class="text-gray-600 text-sm">
-      Com base na jornada, desenvolvi um protótipo de alta fidelidade, com o objetivo de proporcionar aos usuários uma experiência de teste o mais próxima possível da interface real.<br><br>
-      A decisão de utilizar esse nível de fidelidade foi especialmente importante para usuários com pouca familiaridade com tecnologia ou idade mais avançada, garantindo maior compreensão e engajamento durante os testes.
-    </p>
-  </div>
   <div class="flex flex-col space-y-4">
     <h4>3.</h4>
-    <h3 class="text-lg font-semibold">✏️ Protótipo</h3>
-    <p class="text-gray-600 text-sm">
-      Com base na jornada, desenvolvi um protótipo de alta fidelidade, com o objetivo de proporcionar aos usuários uma experiência de teste o mais próxima possível da interface real.<br><br>
-      A decisão de utilizar esse nível de fidelidade foi especialmente importante para usuários com pouca familiaridade com tecnologia ou idade mais avançada, garantindo maior compreensão e engajamento durante os testes.
-    </p>
-  </div>
-  <div class="flex flex-col space-y-4">
-    <h4>4.</h4>
     <h3 class="text-lg font-semibold">👥 Teste de Usabilidade</h3>
     <p class="text-gray-600 text-sm">
       Com o protótipo pronto, realizamos testes de usabilidade com 15 participantes. <br><br>
@@ -113,7 +116,7 @@ ____________________________________
     </p>
   </div>
   <div class="flex flex-col space-y-4">
-    <h4>5.</h4>
+    <h4>4.</h4>
     <h3 class="text-lg font-semibold">📊 Compilação dos Dados & Métricas</h3>
     <p class="text-gray-600 text-sm">
       <strong>Escala SUS (System Usability Scale)</strong><br><br>
