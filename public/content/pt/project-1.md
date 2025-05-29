@@ -56,8 +56,8 @@ _________________________________________
 </div>
 
 ____________________________________________
+# Meu papel
 <div>
-  <h4>meu papel</h4>
   <ul class="list-disc pl-6 text-gray-700 space-y-2">
     <li>
       <strong>UX Design</strong> – Criação de fluxos, wireframes, interfaces e protótipos de alta fidelidade para web e mobile.
@@ -75,3 +75,69 @@ ____________________________________________
 </div>
 
 ____________________________________
+# Processo de Design
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+  <!-- Item 1 -->
+  <div class="flex flex-col space-y-4">
+    <h4>1.</h4>
+    <h3 class="text-lg font-semibold">🧭 Jornada do Usuário</h3>
+    <p class="text-gray-600 text-sm">
+      Para compreender melhor o fluxo de entrada no app, desenhei a jornada do usuário considerando o ponto inicial: a leitura do QRCode fixado no condomínio.<br><br>
+      A jornada nos ajudou a identificar que os usuários precisariam ser orientados de forma clara em cada etapa. Durante esse mapeamento, surgiram pontos de dúvida recorrentes, especialmente relacionados ao momento de validação e vínculo com o condomínio.
+    </p>
+  </div>
+  <div class="flex flex-col space-y-4">
+    <h4>2.</h4>
+    <h3 class="text-lg font-semibold">🧪 Protótipo</h3>
+    <p class="text-gray-600 text-sm">
+      Com base na jornada, desenvolvi um protótipo de alta fidelidade, com o objetivo de proporcionar aos usuários uma experiência de teste o mais próxima possível da interface real.<br><br>
+      A decisão de utilizar esse nível de fidelidade foi especialmente importante para usuários com pouca familiaridade com tecnologia ou idade mais avançada, garantindo maior compreensão e engajamento durante os testes.
+    </p>
+  </div>
+  <div class="flex flex-col space-y-4">
+    <h4>3.</h4>
+    <h3 class="text-lg font-semibold">✏️ Protótipo</h3>
+    <p class="text-gray-600 text-sm">
+      Com base na jornada, desenvolvi um protótipo de alta fidelidade, com o objetivo de proporcionar aos usuários uma experiência de teste o mais próxima possível da interface real.<br><br>
+      A decisão de utilizar esse nível de fidelidade foi especialmente importante para usuários com pouca familiaridade com tecnologia ou idade mais avançada, garantindo maior compreensão e engajamento durante os testes.
+    </p>
+  </div>
+  <div class="flex flex-col space-y-4">
+    <h4>4.</h4>
+    <h3 class="text-lg font-semibold">👥 Teste de Usabilidade</h3>
+    <p class="text-gray-600 text-sm">
+      Com o protótipo pronto, realizamos testes de usabilidade com 15 participantes. <br><br>
+      Demos prioridade à seleção de usuários extremos — pessoas com pouca ou nenhuma experiência com aplicativos e usuários com idade avançada. A hipótese era que, se o fluxo funcionasse bem para esses grupos, os demais usuários também teriam uma boa experiência.<br><br>
+      Aplicamos o primeiro teste com os 10 primeiros participantes. A partir do feedback, realizamos ajustes e validamos novamente o fluxo com os 5 usuários restantes, já com a versão otimizada.
+    </p>
+  </div>
+  <div class="flex flex-col space-y-4">
+    <h4>5.</h4>
+    <h3 class="text-lg font-semibold">📊 Compilação dos Dados & Métricas</h3>
+    <p class="text-gray-600 text-sm">
+      <strong>Escala SUS (System Usability Scale)</strong><br><br>
+      Ao final dos testes, aplicamos a <strong>Escala SUS</strong> com 10 afirmações para cada usuário, a fim de medir a percepção de usabilidade de forma estruturada. Cada item foi avaliado numa escala de 1 (discordo plenamente) a 5 (concordo plenamente).<br><br>
+      <strong>Exemplos das afirmações utilizadas:</strong>
+      <ul class="list-disc pl-6 text-gray-700 space-y-2">
+        <li>Vou conseguir usar o aplicativo</li>
+        <li>Achei o cadastro fácil</li>
+        <li>Me senti confiante para fazer o cadastro</li>
+        <li>Achei que o cadastro tem muitas inconsistências</li>
+        <li>Precisei aprender muitas coisas para fazer o cadastro</li>
+      </ul>
+      <strong>Outras métricas coletadas:</strong>
+      <ul class="list-disc pl-6 text-gray-700 space-y-2">
+        <li>Tempo médio de realização de tarefa</li>
+        <li>Taxa de sucesso por tarefa</li>
+        <li>Quantidade média de erros</li>
+        <li>Número médio de cliques por fluxo</li>
+      </ul>
+    </p>
+  </div>
+</div>
+
+___________________________________________
+
+# Highlights 
+<h4>a parte bonita</h4>
