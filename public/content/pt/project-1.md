@@ -1,6 +1,8 @@
 ______________________________________
 # Contexto
 O apepê é um aplicativo focado em melhorar a experiência dos moradores dentro dos seus condomínios. A plataforma reúne diversas funcionalidades e serviços que facilitam o dia a dia, como a reserva de espaços comuns, o acesso ao mercadinho autônomo e outras tarefas rotineiras — tudo de forma simples e prática, diretamente pelo app.
+![User Journey Map](/images/project-1/apepe_thumbnail.jpg)
+
 _________________________________________
 # Compreensão
 <div class="prose max-w-4xl mx-auto">
@@ -101,15 +103,15 @@ Para compreender melhor o fluxo de entrada no app, desenhei a jornada do usuári
       3. Solicitar vínculo com o condomínio<br>
   </div><br><br>
 
-  ## 1. Realizar o cadastro
+  #### 1. Realizar o cadastro
   ![Main Test Screens](/images/project-1/usability_test/1_sign_in_before.png)
 
   ![Main Test Screens](/images/project-1/usability_test/1_sign_in_after.png)
-  ## 2. Validar e-mail
+  #### 2. Validar e-mail
   ![Main Test Screens](/images/project-1/usability_test/2_email_validation_before.png)
 
   ![Main Test Screens](/images/project-1/usability_test/2_email_validation_after.png)
-  ## 3. Solicitar vínculo condominial 
+  #### 3. Solicitar vínculo condominial 
   ![Main Test Screens](/images/project-1/usability_test/3_condominium_conection_before.png)
 
   ![Main Test Screens](/images/project-1/usability_test/3_condominium_conection_after.png)

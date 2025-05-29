@@ -61,14 +61,16 @@ export function ResumeSection() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="flex justify-center"
           >
-            <a
+            <motion.a
               href="/resume.pdf"
               download="Vitor C. Costa - Product Designer.pdf"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-primary text-primary-foreground rounded-lg hover:opacity-90 transition-opacity"
+              className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full hover:bg-black/80 transition-colors"
+              whileHover={{ y: 5 }}
+              transition={{ duration: 0.2 }}
             >
-              <Download size={20} />
               {text.downloadButton}
-            </a>
+              <Download size={20} />
+            </motion.a>
           </motion.div>
         </motion.div>
       </div>

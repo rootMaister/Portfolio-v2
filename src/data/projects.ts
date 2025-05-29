@@ -4,7 +4,7 @@ export const projects: Project[] = [
   {
     id: 'project-1',
     tags: ['User Journey Map', 'User Flow', 'User Testing', 'User Research', 'Prototyping'],
-    thumbnail: '/images/project-1/thumbnail.png',
+    thumbnail: '/images/project-1/apepe_thumbnail.jpg',
     markdownPath: {
       en: '/content/en/project-1.md',
       pt: '/content/pt/project-1.md'
@@ -20,11 +20,11 @@ export const projects: Project[] = [
       category: ''
     },
     'en-US': {
-      title: 'Teste de Usabilidade apepê',
-      description: 'Teste de Usabilidade apepê',
+      title: 'User Testing apepê',
+      description: 'Registration and Condominium Link Process',
       content: '',
       images: ['/images/project-1/results.png'],
-      role: '',
+      role: 'Product Designer',
       year: '',
       client: '',
       category: ''
