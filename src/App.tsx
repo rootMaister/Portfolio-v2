@@ -11,10 +11,28 @@ import { useState, useEffect, useRef } from "react";
 export default function App() {
   const [isLoading, setIsLoading] = useState(true);
   const [isNavigatingBack, setIsNavigatingBack] = useState(false);
-  const [currentPath, setCurrentPath] = useState("/");
+  const [currentPath, setCurrentPath] = useState<string>(window.location.pathname);
   const [savedScrollPosition, setSavedScrollPosition] = useState(0);
   const hasRestoredScroll = useRef(false);
   
+  useEffect(() => {
+    // Check for redirect from 404.html
+    const redirect = sessionStorage.getItem('redirect_path');
+    if (redirect) {
+      sessionStorage.removeItem('redirect_path');
+      setCurrentPath(redirect);
+      window.history.replaceState(null, '', redirect);
+    }
+
+    // Handle browser back/forward
+    const handlePopState = () => {
+      setCurrentPath(window.location.pathname);
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    return () => window.removeEventListener('popstate', handlePopState);
+  }, []);
+
   useEffect(() => {
     // Handle loading state
     const timer = setTimeout(() => {
@@ -76,34 +94,24 @@ export default function App() {
   // Navigation functions
   const navigate = (path: string, saveScroll = false) => {
     if (saveScroll) {
-      setSavedScrollPosition(window.scrollY);
+      // Save current scroll position before navigation
+      sessionStorage.setItem('scrollPosition', window.scrollY.toString());
     }
-    window.history.pushState({}, '', path);
     setCurrentPath(path);
+    window.history.pushState(null, '', path);
   };
 
   const navigateBack = () => {
-    setIsNavigatingBack(true);
-    window.history.pushState({}, '', '/');
-    setCurrentPath('/');
-    // Restore scroll position if it was saved
-    if (savedScrollPosition > 0) {
+    const savedScroll = sessionStorage.getItem('scrollPosition');
+    if (savedScroll) {
+      sessionStorage.removeItem('scrollPosition');
+      navigate('/', false);
+      // Restore scroll position after a short delay to ensure content is rendered
       setTimeout(() => {
-        window.scrollTo({
-          top: savedScrollPosition,
-          behavior: 'auto'
-        });
-        setSavedScrollPosition(0);
-        // Hide loading screen after scroll is restored
-        setTimeout(() => {
-          setIsNavigatingBack(false);
-        }, 300);
+        window.scrollTo(0, parseInt(savedScroll));
       }, 100);
     } else {
-      // If no scroll position to restore, just hide the loading screen
-      setTimeout(() => {
-        setIsNavigatingBack(false);
-      }, 300);
+      navigate('/', false);
     }
   };
 
@@ -117,6 +125,11 @@ export default function App() {
     </div>
   );
 
+  // Check if we're on a project detail page
+  const projectMatch = currentPath.match(/^\/project\/(.+)/);
+  const isProjectDetail = !!projectMatch;
+  const projectId = projectMatch?.[1];
+
   return (
     <LanguageProvider>
       <div className="bg-background">
@@ -124,11 +137,11 @@ export default function App() {
           <div className="min-h-screen flex items-center justify-center">
             <div className="w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
           </div>
-        ) : currentPath.startsWith("/project/") ? (
+        ) : isProjectDetail ? (
           <div className="min-h-screen flex flex-col">
             <main className="flex-1">
               <ProjectDetail
-                projectId={currentPath.split("/").pop()}
+                projectId={projectId}
                 navigateBack={navigateBack}
               />
             </main>
