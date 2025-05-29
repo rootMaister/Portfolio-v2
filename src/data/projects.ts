@@ -3,7 +3,7 @@ import { Project } from '../types/Project';
 export const projects: Project[] = [
   {
     id: 'project-1',
-    tags: [],
+    tags: ['User Journey Map', 'User Flow', 'User Testing', 'User Research', 'Prototyping'],
     thumbnail: '/images/project-1/thumbnail.png',
     markdownPath: {
       en: '/content/en/project-1.md',
@@ -11,10 +11,10 @@ export const projects: Project[] = [
     },
     'pt-BR': {
       title: 'Teste de Usabilidade apepê',
-      description: 'Teste de Usabilidade apepê',
+      description: 'Processo de cadastro e vínculo condominial',
       content: '',
       images: ['/images/project-1/results.png'],
-      role: '',
+      role: 'Product Designer',
       year: '',
       client: '',
       category: ''

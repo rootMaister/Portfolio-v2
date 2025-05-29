@@ -59,7 +59,7 @@ export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content, cla
               <img
                 src={src ? getAssetPath(src) : ''}
                 alt={alt || ''}
-                className="w-full rounded-lg shadow-lg my-8"
+                className="w-full rounded-lg my-8"
                 {...props}
               />
             );
