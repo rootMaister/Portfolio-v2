@@ -8,6 +8,18 @@ export function ResumeSection() {
   const { language } = useLanguage();
   const [isMounted, setIsMounted] = useState(false);
   
+  const getResumeFile = () => {
+    return language === 'pt-BR' 
+      ? {
+          path: "/resume.pdf",
+          filename: "Vitor C. Costa - Product Designer.pdf"
+        }
+      : {
+          path: "/EN - Vitor C. Costa - Product Designer.pdf",
+          filename: "EN - Vitor C. Costa - Product Designer.pdf"
+        };
+  };
+  
   // Set mounted state
   useEffect(() => {
     setIsMounted(true);
@@ -39,6 +51,7 @@ export function ResumeSection() {
   }
   
   const text = content[language];
+  const resumeFile = getResumeFile();
   
   return (
     <section id="resume" className="py-20 px-4 md:px-8">
@@ -62,8 +75,8 @@ export function ResumeSection() {
             className="flex justify-center"
           >
             <motion.a
-              href="/resume.pdf"
-              download="Vitor C. Costa - Product Designer.pdf"
+              href={resumeFile.path}
+              download={resumeFile.filename}
               className="flex items-center gap-2 bg-black text-white px-4 py-2 rounded-full hover:bg-black/80 transition-colors"
               whileHover={{ y: 5 }}
               transition={{ duration: 0.2 }}
