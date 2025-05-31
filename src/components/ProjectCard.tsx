@@ -2,15 +2,17 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { getAssetPath } from "../utils/assetPath";
+import { useLanguage } from "../contexts/LanguageContext";
 
 interface ProjectCardProps {
   title: string;
   description: string;
   image: string;
   categories: string[];
-  href: string;
+  href?: string;
   index: number;
-  viewText: string;
+  viewText?: string;
+  comingSoon?: boolean;
   navigate?: (path: string, saveScroll?: boolean) => void;
 }
 
@@ -21,11 +23,19 @@ export function ProjectCard({
   href,
   index,
   viewText,
+  comingSoon = false,
   navigate
 }: ProjectCardProps) {
+  const { language } = useLanguage();
+  
+  const comingSoonText = {
+    "pt-BR": "Mais detalhes em breve",
+    "en-US": "More details coming soon"
+  };
+
   const handleClick = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (navigate) {
+    if (navigate && href) {
       // Pass true to save the scroll position when navigating to a project
       navigate(href, true);
     }
@@ -60,15 +70,21 @@ export function ProjectCard({
         </p>
         
         <div className="flex items-center">
-          <motion.a
-            href={href}
-            onClick={handleClick}
-            className="inline-flex items-center text-black hover:opacity-70 transition-opacity font-medium"
-            whileHover={{ x: 5 }}
-            transition={{ duration: 0.2 }}
-          >
-            {viewText} →
-          </motion.a>
+          {comingSoon ? (
+            <p className="text-muted-foreground italic">
+              {comingSoonText[language]}
+            </p>
+          ) : (
+            <motion.a
+              href={href}
+              onClick={handleClick}
+              className="inline-flex items-center text-black hover:opacity-70 transition-opacity font-medium"
+              whileHover={{ x: 5 }}
+              transition={{ duration: 0.2 }}
+            >
+              {viewText} →
+            </motion.a>
+          )}
         </div>
       </div>
     </motion.div>

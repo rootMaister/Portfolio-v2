@@ -30,4 +30,34 @@ export const projects: Project[] = [
       category: ''
     }
   },
+  {
+    id: 'coming-soon-project',
+    tags: ['UX Design', 'UI Design'],
+    thumbnail: '/images/desk-field-research/desk.png',
+    comingSoon: true,
+    markdownPath: {
+      en: '',
+      pt: ''
+    },
+    'pt-BR': {
+      title: 'Controle de Acesso Desk',
+      description: 'Desenvolvimento de um sistema de controle de acesso condominial.',
+      content: '',
+      images: [],
+      role: 'Product Designer',
+      year: '2024',
+      client: '',
+      category: ''
+    },
+    'en-US': {
+      title: 'Access Control Desk',
+      description: 'Development of a condominium access control system.',
+      content: '',
+      images: [],
+      role: 'Product Designer',
+      year: '2024',
+      client: '',
+      category: ''
+    }
+  },
 ];

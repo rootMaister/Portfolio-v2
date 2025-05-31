@@ -82,9 +82,10 @@ export function Projects({ navigate }: ProjectsProps) {
               description={project[language].description}
               image={project.thumbnail}
               categories={project.tags}
-              href={`/project/${project.id}`}
+              href={project.comingSoon ? undefined : `/project/${project.id}`}
               index={index}
               viewText={text.viewProject}
+              comingSoon={project.comingSoon}
               navigate={navigate}
             />
           ))}

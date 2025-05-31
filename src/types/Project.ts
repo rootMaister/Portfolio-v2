@@ -6,6 +6,7 @@ export interface Project {
   thumbnail: string;
   githubUrl?: string;
   liveUrl?: string;
+  comingSoon?: boolean;
   markdownPath: {
     en: string;
     pt: string;

@@ -5,6 +5,7 @@ import { About } from "./components/About";
 import { ResumeSection } from "./components/ResumeSection";
 import { Footer } from "./components/Footer";
 import { ProjectDetail } from "./components/ProjectDetail";
+import UIPortfolioGallery from "./components/UIPortfolioGallery";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import { useState, useEffect, useRef } from "react";
 
@@ -164,6 +165,7 @@ export default function App() {
             <main className="flex-1">
               <Hero />
               <Projects navigate={navigate} />
+              <UIPortfolioGallery />
               <About />
               <ResumeSection />
             </main>
