@@ -33,7 +33,7 @@ export const projects: Project[] = [
   {
     id: 'coming-soon-project',
     tags: ['UX Design', 'UI Design'],
-    thumbnail: '/images/desk-field-research/desk.png',
+    thumbnail: '/images/desk-field-research/desk-thumbnail.jpg',
     comingSoon: true,
     markdownPath: {
       en: '',
