@@ -17,7 +17,7 @@ export function About() {
   const AboutMePT = () => (
     <>
       <p>
-        Nascido em São Paulo. Sou formado em <strong>Análise e
+        Nascido em São Paulo. Jogador de Rugby no meu tempo livre. Sou formado em <strong>Análise e
         Desenvolvimento de Sistemas</strong> e atuo há 5 anos como <strong>UX/UI Designer</strong>, criando
         experiências digitais e físicas para plataformas web e mobile.
       </p>
