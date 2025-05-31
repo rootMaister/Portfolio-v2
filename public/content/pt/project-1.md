@@ -1,10 +1,11 @@
 ______________________________________
-# Contexto
+<div class="text-center"><h1>Contexto<h1></div>
 O apepê é um aplicativo focado em melhorar a experiência dos moradores dentro dos seus condomínios. A plataforma reúne diversas funcionalidades e serviços que facilitam o dia a dia, como a reserva de espaços comuns, o acesso ao mercadinho autônomo e outras tarefas rotineiras — tudo de forma simples e prática, diretamente pelo app.
+
 ![User Journey Map](/images/project-1/apepe_thumbnail.jpg)
 
 _________________________________________
-# Compreensão
+<div class="text-center"><h1>Compreensão<h1></div>
 <div class="prose max-w-4xl mx-auto">
   <div class="grid grid-cols-1 md:grid-cols-2 gap-8"> 
     <div>
@@ -36,7 +37,7 @@ _________________________________________
 </div>
 
 ____________________________________________
-# Meu papel
+<div class="text-center"><h1>Meu papel<h1></div>
 <div>
   <ul class="list-disc pl-6 text-gray-700 space-y-2">
     <li>
@@ -55,10 +56,11 @@ ____________________________________________
 </div>
 
 ____________________________________
-# Processo de Design
+<div class="text-center"><h1>Processo de Design<h1></div>
 
-<h4>1.</h4>
-<h3 class="text-lg font-semibold">🧭 Jornada do Usuário</h3>
+<!-- <h4>1.</h4> -->
+<!-- <h3 class="text-lg font-semibold">🧭 Jornada do Usuário</h3> -->
+<div class="text-center"><h3 class="text-lg font-semibold"> 1. Jornada do Usuário</h3></div>
 
 Para compreender melhor o fluxo de entrada no app, desenhei a jornada do usuário considerando o ponto inicial: a leitura do QRCode fixado no condomínio.
 
@@ -67,11 +69,13 @@ Para compreender melhor o fluxo de entrada no app, desenhei a jornada do usuári
 ## A jornada nos ajudou a identificar que os usuários precisariam ser orientados de forma clara em cada etapa. Durante esse mapeamento, surgiram pontos de dúvida recorrentes, especialmente relacionados ao momento de validação e vínculo com o condomínio.
 <br><br>
 
-<h4>2.</h4>
-<h3 class="text-lg font-semibold">🧪 Protótipo</h3>
+<!-- <h4>2.</h4> -->
+<div class="text-center"><h3 class="text-lg font-semibold"> 2. Protótipo</h3></div>
+<div class="text-center"><h4 class="text-lg font-semibold"> Protótipo feito utilizando Figma + Protopie</h4></div>
 <p class="text-gray-600 text-sm">
   Com base na jornada, desenvolvi um protótipo de alta fidelidade, com o objetivo de proporcionar aos usuários uma experiência de teste o mais próxima possível da interface real.
 </p>
+
 <div class="aspect-video">
   <iframe
     src="https://player.vimeo.com/video/793933696?h=c6d9d6c0f5&autoplay=1&loop=1"
@@ -89,34 +93,45 @@ Para compreender melhor o fluxo de entrada no app, desenhei a jornada do usuári
 ![Main Test Screens](/images/project-1/main_screens.png)
 <div>
   <div class="flex flex-col space-y-4">
-    <h4>3.</h4>
-    <h3 class="text-lg font-semibold">👥 Teste de Usabilidade</h3>
+    <div class="text-center"><h3 class="text-lg font-semibold"> 3. Teste de Usabilidade</h3></div>
     <p class="text-gray-600 text-sm">
       Com o protótipo pronto, realizamos testes de usabilidade com 15 participantes. <br><br>
       Demos prioridade à seleção de usuários extremos — pessoas com pouca ou nenhuma experiência com aplicativos e usuários com idade avançada. A hipótese era que, se o fluxo funcionasse bem para esses grupos, os demais usuários também teriam uma boa experiência.<br><br>
       Aplicamos o primeiro teste com os 10 primeiros participantes. A partir do feedback, realizamos ajustes e validamos novamente o fluxo com os 5 usuários restantes, já com a versão otimizada. 
     </p><br><br>
-    <h4>Roteiro do Teste</h4>
-      O roteiro de teste apresentava 3 tarefas que o usuário testado deveria seguir:<br>
-      1. Realizar o Cadastro<br>
-      2. Validação de e-mail<br>
-      3. Solicitar vínculo com o condomínio<br>
+    <div class="text-center"><h4>Roteiro do Teste</h4></div>
+      <div class="text-center">
+        O roteiro de teste apresentava 3 tarefas que o usuário testado deveria seguir: <br /> <strong>1. Realizar o cadastro -> 2. Validar o e-mail -> 3. Solicitar vínculo condominial.</strong>
+      </div>
   </div><br><br>
 
-  #### 1. Realizar o cadastro
+  <div class="text-center">
+    <h4>1. Realizar o cadastro</h4>
+  </div>
+  
   ![Main Test Screens](/images/project-1/usability_test/1_sign_in_before.png)
+<div class="text-center">Principais alterações após os primeiros testes</div>
 
   ![Main Test Screens](/images/project-1/usability_test/1_sign_in_after.png)
-  #### 2. Validar e-mail
+  <div class="text-center">
+    <h4>2. Validar e-mail</h4>
+  </div>
+
   ![Main Test Screens](/images/project-1/usability_test/2_email_validation_before.png)
+<div class="text-center">Principais alterações após os primeiros testes.</div>
+  
 
   ![Main Test Screens](/images/project-1/usability_test/2_email_validation_after.png)
-  #### 3. Solicitar vínculo condominial 
+  <div class="text-center">
+    <h4>3. Solicitar vínculo condominial</h4>
+  </div>
+
   ![Main Test Screens](/images/project-1/usability_test/3_condominium_conection_before.png)
+<div class="text-center">Principais alterações após os primeiros testes.</div>
 
   ![Main Test Screens](/images/project-1/usability_test/3_condominium_conection_after.png)
-  <h4>4.</h4>
-  <h3 class="text-lg font-semibold">📊 Compilação dos Dados & Métricas</h3>
+  <!-- <h4>4.</h4> -->
+  <div class="text-center"><h3 class="text-lg font-semibold">4. Compilação dos Dados & Métricas</h3></div>
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <div>
         <h4>Escala SUS (System Usability Scale)</h4>
@@ -144,7 +159,7 @@ Para compreender melhor o fluxo de entrada no app, desenhei a jornada do usuári
 </div>
 
 ___________________________________________
-# Resultados
+<div class="text-center"><h1>Resultados<h1></div>
 <ul class="list-disc pl-6 text-gray-700 space-y-2">
   <li>
     <strong>Percepção de dificuldade:</strong> Os participantes classificaram o processo como fácil, com a experiência avaliada na Categoria A da Escala SUS — o nível mais alto de usabilidade segundo a métrica.
@@ -161,6 +176,8 @@ ___________________________________________
 </ul>
 
 ## Esses dados reforçam a efetividade da solução, mostrando que o novo fluxo atendeu tanto às necessidades de segurança quanto à experiência fluida e intuitiva para o usuário final.
+
+
 
 
 ___________________________________________

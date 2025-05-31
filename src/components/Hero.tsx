@@ -11,7 +11,7 @@ export function Hero() {
   const scrollToProjects = () => {
     const projectsSection = document.getElementById('work');
     if (projectsSection) {
-      const offset = 100; // Match navigation offset
+      const offset = 20; // Match navigation offset
       const elementPosition = projectsSection.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
       

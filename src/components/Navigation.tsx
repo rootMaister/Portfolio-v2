@@ -56,7 +56,7 @@ export function Navigation({ navigate }: NavigationProps) {
     e.preventDefault();
     const section = document.getElementById(sectionId);
     if (section) {
-      const offset = 100; // Offset to account for header height
+      const offset = 20; // Offset to account for header height
       const elementPosition = section.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
       

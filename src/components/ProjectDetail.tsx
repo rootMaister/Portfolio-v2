@@ -114,11 +114,11 @@ export const ProjectDetail: React.FC<ProjectDetailProps> = ({ projectId, navigat
           transition={{ duration: 0.6 }}
         >
           {/* Project metadata */}
-          <h1 className="text-6xl md:text-6xl font-medium mb-6">{getLangContent(project).title}</h1>
-          <p className="text-xl text-muted-foreground mb-8">{getLangContent(project).description}</p>
+          <h1 className="text-6xl md:text-6xl font-medium mb-6 text-center">{getLangContent(project).title}</h1>
+          <p className="text-xl text-muted-foreground mb-8 text-center">{getLangContent(project).description}</p>
 
           {/* Tags */}
-          <div className="flex flex-wrap gap-3 mb-8">
+          <div className="flex flex-wrap gap-3 mb-8 justify-center">
             {project.tags.map((tag, index) => (
               <span 
                 key={index} 

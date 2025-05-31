@@ -108,7 +108,7 @@ To better understand the onboarding flow, I mapped out the user journey starting
 
   #### 1. Sign up
   ![Main Test Screens](/images/project-1/usability_test/1_sign_in_before.png)
-
+  
   ![Main Test Screens](/images/project-1/usability_test/1_sign_in_after.png)
   #### 2. Email verification
   ![Main Test Screens](/images/project-1/usability_test/2_email_validation_before.png)
